@@ -10,7 +10,7 @@ const Footer = () => {
       <span className={styles.footer}>
         Created with <FontAwesomeIcon icon={faNode} /> +{" "}
         <FontAwesomeIcon icon={faReact} /> by{" "}
-        <a href="http://tarunsingh.netlify.app">Tarun</a>
+        <a className ={styles.footerlink} href="http://bhutale.in">Anil Bhutale</a>
       </span>
     </div>
   );

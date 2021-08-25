@@ -8,4 +8,6 @@ export { default as Admin } from "./Pages/Admin";
 export { default as Footer } from "./Footer/Footer";
 export { default as UserPage } from "./UserPage/UserPage";
 export { default as LoginGoogle } from "./LoginGoogle/LoginGoogle";
+export { default as AngelLogin } from "./AngelLogin/AngelLogin";
+export { default as Trade } from "./Trade/Trade";
 export { default as SongsUploadBox } from "./SongsUploadBox/SongsUploadBox";

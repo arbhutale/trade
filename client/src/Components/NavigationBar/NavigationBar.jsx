@@ -29,9 +29,8 @@ const NavigationBar = (props) => {
   const unAuthenticNavBar = () => {
     return (
       <>
-        <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/login">Login</Nav.Link>
-        <Nav.Link href="/register">Register</Nav.Link>
+        <Nav.Link className ={styles.whitecolor} href="/login">Login</Nav.Link>
+        <Nav.Link className ={styles.whitecolor} href="/register">Register</Nav.Link>
       </>
     );
   };
@@ -39,10 +38,9 @@ const NavigationBar = (props) => {
   const authenticNavBar = () => {
     return (
       <>
-        <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/todos">Notes</Nav.Link>
+        <Nav.Link className ={styles.whitecolor} href="/todos">Notes</Nav.Link>
         {user.role === "admin" ? (
-          <Nav.Link href="/admin">Admin</Nav.Link>
+          <Nav.Link className ={styles.whitecolor} href="/admin">Admin</Nav.Link>
         ) : null}
         <Nav className="justify-content-end">
           {whileLogout ? (
@@ -52,12 +50,13 @@ const NavigationBar = (props) => {
               spin
             />
           ) : (
-            <Button
-              className={cx(styles.logoutbtn, "btn btn-link nav-item nav-link")}
-              onClick={onClickLogoutHandler}
-            >
-              Logout
-            </Button>
+            // <Button
+            //   className={cx(styles.logoutbtn, "btn btn-link nav-item nav-link")}
+            //   onClick={onClickLogoutHandler}
+            // >
+            //   Logout
+            // </Button>
+            <Nav.Link className ={styles.whitecolor} onClick={onClickLogoutHandler}>Logout</Nav.Link>
           )}
         </Nav>
       </>
@@ -66,16 +65,16 @@ const NavigationBar = (props) => {
 
   return (
     <Navbar className={styles.navbar} expand="lg">
-      <Navbar.Brand href="/">Photos-Daily</Navbar.Brand>
+      <Navbar.Brand className = {styles.whitecolor} href="/">Bhutale Trading</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          {!isAuthenticated ? unAuthenticNavBar() : authenticNavBar()}
+        <Nav.Link className ={styles.whitecolor} href="/">Home</Nav.Link>
         </Nav>
         {user.username !== "" ? (
           <Nav className="justify-content-end">
             <Nav.Item>
-              <Nav.Link href="/userpage">
+              <Nav.Link className ={styles.whitecolor} href="/userpage">
                 {user.coverPhotoUrl ? (
                   <img
                     src={user.coverPhotoUrl}
@@ -90,16 +89,17 @@ const NavigationBar = (props) => {
             </Nav.Item>
           </Nav>
         ) : null}
-        <Form inline>
-          {/* <FormControl
+        {/* <Form inline>
+          <FormControl
             type="text"
             placeholder="To be added..."
             className="mr-sm-2"
-          /> */}
+          />
           <Button variant="outline-dark" disabled>
             Search
           </Button>
-        </Form>
+        </Form> */}
+        {!isAuthenticated ? unAuthenticNavBar() : authenticNavBar()}
       </Navbar.Collapse>
     </Navbar>
   );

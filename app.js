@@ -8,9 +8,12 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(morgan("tiny"));
-
+const nseRouter = require("./routes/NSEData");
+app.use("/nse", nseRouter);
 const userRouter = require("./routes/User");
 app.use("/user", userRouter);
+const nseDataRouter = require("./routes/NSEWeb");
+app.use("/nseweb", nseDataRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

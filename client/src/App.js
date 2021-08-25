@@ -8,6 +8,8 @@ import {
   Admin,
   Footer,
   UserPage,
+  AngelLogin,
+  Trade
 } from "./Components/index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from "./HOCS/PrivateRoute";
@@ -31,6 +33,16 @@ function App() {
           path="/userpage"
           roles={["admin", "user"]}
           component={UserPage}
+        />
+         <PrivateRoute
+          path="/angellogin"
+          roles={["admin", "user"]}
+          component={AngelLogin}
+        />
+        <PrivateRoute
+          path="/trade"
+          roles={["admin", "user"]}
+          component={Trade}
         />
       </div>
       <Footer />

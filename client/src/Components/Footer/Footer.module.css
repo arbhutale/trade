@@ -4,5 +4,8 @@
   bottom: 0;
   width: 100% !important;
   height: 30px !important ;
-  background: rgba(101, 181, 221, 0.589);
+  background: #e95420;
+}
+.footerlink{
+  color: white
 }

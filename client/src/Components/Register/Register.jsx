@@ -136,7 +136,7 @@ const Register = (props) => {
             className="form-control"
             placeholder="Enter Your Name..."
           />
-          <label htmlFor="role" className="sr-only">
+          {/* <label htmlFor="role" className="sr-only">
             Role:{" "}
           </label>
           <input
@@ -150,7 +150,7 @@ const Register = (props) => {
             onChange={onChange}
             className="form-control"
             placeholder="Enter Role (Admin/User)"
-          />
+          /> */}
           {/* <label className={styles.radioButtons}>
             <input value="user" type="radio" name="role" checked />
             User
