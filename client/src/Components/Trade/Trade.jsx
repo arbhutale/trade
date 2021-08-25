@@ -5,7 +5,6 @@ import { Card, Form} from "react-bootstrap";
 import Cookies from 'universal-cookie';
 import Select from 'react-select';
 import AngelAuthService from "../../Services/AngelAuth"
-var json = require("../../OpenAPIScripMaster.json"); 
 
 const cookies = new Cookies();
 const Trade = (props) => {
