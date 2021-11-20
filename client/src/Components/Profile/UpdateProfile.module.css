@@ -22,13 +22,3 @@
   width: 5% !important;
   margin: 0;
 }
-
-.background{
-  background-image: url("https://cdn.wallpapersafari.com/40/46/BxmlvV.jpg") ;
-  height:900px;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}

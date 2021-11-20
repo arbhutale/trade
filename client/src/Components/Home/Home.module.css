@@ -1,10 +1,43 @@
-.carousel {
-  height: 87vh !important;
+.page{
+ padding-bottom: 25px;
+}
+.pro_image{
+  width:100%;
+  border-bottom-left-radius: 25px;
+}
+.pro_img_col{
+  padding-left: 0px; 
 }
 
-.item img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-height: 300px;
+.username{
+  text-align: left;
+  margin-bottom: 5px;
+  padding-top: 25px;
+}
+
+.dottedline{
+  width:100%;
+  border-top:1px dashed black;
+  margin-bottom:10px
+}
+.user_info{
+  font-size: 13px;
+  text-align: left;
+  margin-bottom:0px
+}
+.pro_details_col{
+  background-color:white;
+  margin-left: -15px;
+  padding-left: 15px;
+}
+.user_details_back{
+  background-color:#DD1111;
+  border-top-right-radius: 25px;
+  padding-top: 25px;
+}
+
+.filtera{
+  border-radius:25px;
+  background-color:white;
+  margin-bottom: 10px;
 }

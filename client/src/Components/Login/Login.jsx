@@ -24,7 +24,7 @@ const Login = (props) => {
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
-        props.history.push("/todos");
+        props.history.push("/home");
       } else {
         setMessage(message);
       }
@@ -32,10 +32,16 @@ const Login = (props) => {
   };
 
   return (
+    <div className={styles.background}>
+    <div className="container">
     <Card className={cx("container", styles.container)} 
     style={{ 
       width: '25rem',
-      marginTop: '3rem'
+      marginTop: '3rem',
+      float:'right',
+      background: 'rgba(0, 0, 0, 0.3)',
+      borderRadius: '15px'
+      
       }}>
       <form onSubmit={onSubmit}>
         <h3>Sign In</h3>
@@ -76,6 +82,8 @@ const Login = (props) => {
 
       {message ? <Message message={message} /> : null}
     </Card>
+    </div>
+    </div>
   );
 };
 

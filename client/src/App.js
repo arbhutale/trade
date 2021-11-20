@@ -9,6 +9,7 @@ import {
   Footer,
   UserPage,
   AngelLogin,
+  UpdateProfile,
   Trade
 } from "./Components/index";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -16,11 +17,11 @@ import PrivateRoute from "./HOCS/PrivateRoute";
 import UnPrivateRoute from "./HOCS/UnPrivateRoute";
 
 function App() {
+  
   return (
     <Router>
       <NavBar />
-      <div className="container">
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Login} />
         <UnPrivateRoute path="/login" component={Login} />
         <UnPrivateRoute path="/register" component={Register} />
         <PrivateRoute
@@ -44,7 +45,16 @@ function App() {
           roles={["admin", "user"]}
           component={Trade}
         />
-      </div>
+         <PrivateRoute
+          path="/profile"
+          roles={["admin", "user"]}
+          component={UpdateProfile}
+        />
+        <PrivateRoute
+          path="/home"
+          roles={["admin", "user"]}
+          component={Home}
+        />
       <Footer />
     </Router>
   );

@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
     min: 6,
     max: 15,
+    unique: true,
   },
   password: {
     type: String,
@@ -16,6 +17,12 @@ const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true
+  },
+  mobile: {
+    type: String,
+    required: true,
+    unique: true
   },
   originalName: {
     type: String,
@@ -39,6 +46,92 @@ const UserSchema = new mongoose.Schema({
   lastUpdated: {
     type: Date,
   },
+
+  bio: {
+    type: String,
+    
+  },
+  profile_for: {
+    type: String,
+    
+  },
+  //username is firdst name
+  firstName: {
+    type: String,
+  },
+
+  lastName: {
+    type: String,
+    
+  },
+  gender: {
+    type: String,
+    
+  },
+  dob: {
+    type: String,
+    
+  },
+  religion: {
+    type: String,
+    
+  },
+  caste: {
+    type: String,
+    
+  },
+  motherTounge: {
+    type: String,
+    
+  },
+  state: {
+    type: String,
+    
+  },
+  city: {
+    type: String,
+    
+  },
+  country: {
+    type: String,
+    
+  },
+  height: {
+    type: String,
+    
+  },
+  martialStatus: {
+    type: String,
+    
+  },
+  food_type: {
+    type: String,
+    
+  },
+  smoker: {
+    type: String,
+    
+  },
+  drinker: {
+    type: String,
+    
+  },
+  imagePath: {
+    type: String
+  },
+  stage1:{
+    type: String
+  },
+  stage2:{
+    type: String
+  },
+  stage3: {
+    type: String
+  },
+  verification:{
+    type: Boolean
+  },
+
   todos: [
     {
       type: mongoose.Schema.Types.ObjectId,

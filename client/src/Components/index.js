@@ -10,4 +10,5 @@ export { default as UserPage } from "./UserPage/UserPage";
 export { default as LoginGoogle } from "./LoginGoogle/LoginGoogle";
 export { default as AngelLogin } from "./AngelLogin/AngelLogin";
 export { default as Trade } from "./Trade/Trade";
+export { default as UpdateProfile } from "./Profile/UpdateProfile";
 export { default as SongsUploadBox } from "./SongsUploadBox/SongsUploadBox";

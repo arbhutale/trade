@@ -135,7 +135,7 @@ userRouter.post(
 );
 
 userRouter.post("/register", (req, res) => {
-  const { username, password, role, originalName, email } = req.body;
+  const { username, password, role, originalName, email,mobile } = req.body;
   User.findOne({ username }, (err, user) => {
     if (err) responseHandler(err, null, null, null, res);
     if (user) responseHandler(null, null, user, "usernameTaken", res);
@@ -146,6 +146,7 @@ userRouter.post("/register", (req, res) => {
         role,
         originalName,
         email,
+        mobile
       });
       newUser.save((err) => {
         if (err) responseHandler(err, "userOnSave", null, null, res);
@@ -386,6 +387,59 @@ userRouter.post(
             isAuthenticated: true,
             user: { username, role, originalName, userIntro },
             message: { msgBody: "Intro Updated Succesfully", msgError: false },
+          });
+        }
+      }
+    );
+  }
+);
+
+
+userRouter.put(
+  "/updateProfile",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+
+    console.log(req.body);
+    console.log("uuuuuuuuuuu")
+
+
+    
+
+    User.findByIdAndUpdate(
+      req.user._id,
+      { bio: req.body.bio ,
+       profile_for: req.body.profile_for ,
+       firstName: req.body.firstName ,
+       lastName: req.body.lastName ,
+       gender: req.body.gender ,
+       dob: req.body.dob ,
+       religion: req.body.religion ,
+       caste: req.body.caste ,
+       motherTounge: req.body.motherTounge ,
+       state: req.body.state ,
+       city: req.body.city ,
+       country: req.body.country ,
+       height: req.body.height ,
+       martialStatus: req.body.martialStatus ,
+       food_type: req.body.food_type ,
+       smoker: req.body.smoker ,
+       drinker: req.body.drinker },
+       { new: true },
+      (err, document) => {
+        console.log("test-0")
+        console.log(err)
+        console.log(document)
+        if (err) {
+          return res
+            .status(500)
+            .json({ message: { msgBody: "An error occured", msgError: true } });
+        } else {
+          const { username, role, originalName, userIntro } = document;
+          return res.status(200).json({
+            isAuthenticated: true,
+            user: { username, role, originalName, userIntro },
+            message: { msgBody: "Profile Updated Succesfully", msgError: false },
           });
         }
       }

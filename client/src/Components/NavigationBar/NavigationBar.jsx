@@ -25,6 +25,7 @@ const NavigationBar = (props) => {
       }
     });
   };
+  
 
   const unAuthenticNavBar = () => {
     return (
@@ -65,7 +66,7 @@ const NavigationBar = (props) => {
 
   return (
     <Navbar className={styles.navbar} expand="lg">
-      <Navbar.Brand className = {styles.whitecolor} href="/">Bhutale Trading</Navbar.Brand>
+      <Navbar.Brand className = {styles.whitecolor} href="/">Mangal Vivaha</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

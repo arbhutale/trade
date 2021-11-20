@@ -16,6 +16,7 @@ const Register = (props) => {
     originalName: "",
     userIntro: "Not Added",
     email: "",
+    mobile: "",
     coverPhotoUrl: "#",
     createdAt: Date.now(),
     lastUpdated: Date.now(),
@@ -58,14 +59,21 @@ const Register = (props) => {
       role: "",
       originalName: "",
       email: "",
+      mobile: ""
     });
   };
 
   return (
+    <div className={styles.background}>
+    <div className="container">
     <Card className={cx("container", styles.container)} 
     style = {{
       width: '25rem',
-      marginTop: '3rem'
+      marginTop: '3rem',
+      float:'right',
+      background: 'rgba(0, 0, 0, 0.3)',
+      borderRadius: '15px'
+
     }}>
       {isLoading ? (
         <div className={styles.loadingPage}>
@@ -92,6 +100,20 @@ const Register = (props) => {
             className="form-control"
             placeholder="Enter Username..."
           />
+          <label htmlFor="originalName" className="sr-only">
+            Original Name:{" "}
+          </label>
+          <input
+             style={{
+              marginBottom:'1rem'
+            }} 
+            name="originalName"
+            value={user.originalName}
+            type="text"
+            onChange={onChange}
+            className="form-control"
+            placeholder="Enter Your Name..."
+          />
           <label htmlFor="email" className="sr-only">
             Email:{" "}
           </label>
@@ -106,6 +128,21 @@ const Register = (props) => {
             onChange={onChange}
             className="form-control"
             placeholder="Enter Email..."
+          />
+          <label htmlFor="mobile" className="sr-only">
+            Mobile Number:{" "}
+          </label>
+          <input
+             style={{
+              marginBottom:'1rem'
+            }} 
+            required
+            name="mobile"
+            value={user.mobile}
+            type="text"
+            onChange={onChange}
+            className="form-control"
+            placeholder="Enter Mobile Number..."
           />
           <label htmlFor="password" className="sr-only">
             Password:{" "}
@@ -122,20 +159,7 @@ const Register = (props) => {
             className="form-control"
             placeholder="Enter Password..."
           />
-          <label htmlFor="originalName" className="sr-only">
-            Original Name:{" "}
-          </label>
-          <input
-             style={{
-              marginBottom:'1rem'
-            }} 
-            name="originalName"
-            value={user.originalName}
-            type="text"
-            onChange={onChange}
-            className="form-control"
-            placeholder="Enter Your Name..."
-          />
+          
           {/* <label htmlFor="role" className="sr-only">
             Role:{" "}
           </label>
@@ -169,10 +193,12 @@ const Register = (props) => {
         </form>
       )}
       <span className={styles.googleloginbtn}>
-        OR <LoginGoogle />
+      
       </span>
       {message ? <Message message={message} /> : null}
     </Card>
+    </div>
+    </div>
   );
 };
 
