@@ -14,3 +14,11 @@
 .googleloginbtn {
   margin: -1rem 0rem 2rem 0 
 }
+
+.floatRight{
+  float: right;
+}
+
+.floatLeft{
+  float: left;
+}
