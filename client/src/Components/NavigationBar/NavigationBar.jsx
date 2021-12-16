@@ -39,6 +39,8 @@ const NavigationBar = (props) => {
     return (
       <>
         <Nav.Link className ={styles.whitecolor} href="/todos">Notes</Nav.Link>
+        <Nav.Link className ={styles.whitecolor} href="/angellogin">Angel</Nav.Link>
+        <Nav.Link className ={styles.whitecolor} href="/trade">Trade</Nav.Link>
         {user.role === "admin" ? (
           <Nav.Link className ={styles.whitecolor} href="/admin">Admin</Nav.Link>
         ) : null}
