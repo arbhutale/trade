@@ -45,7 +45,7 @@ nseDataRouter.get(
     // console.log(queryObject);
     var regex = new RegExp( data.toLocaleUpperCase() , "g");
     // at this point, the line above is the same as: var regex = /#abc#/g;
-    NSEData.find({ name: regex })
+    NSEData.find({ symbol: regex })
     .limit(100)
       .exec((err, document) => {
         if (err) {
@@ -53,7 +53,6 @@ nseDataRouter.get(
             .status(500)
             .json({ message: { msgBody: "An error occured", msgError: true } });
         } else {
-
           res.status(200).json({ data: document, authenticated: true });
         }
       });

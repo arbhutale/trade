@@ -9,6 +9,8 @@ import styles from "./Trade.css";
 const cookies = new Cookies();
 const Trade = (props) => {
   const [funds, setFunds] = useState([]);
+  const [opt, setOpt] = useState([]);
+  const [sopt, setSopt] = useState({});
   const [holding, setHoldeings] = useState([]);
   //const [avg, setAvg] = useState(0);
   var avg = 0
@@ -30,32 +32,36 @@ const Trade = (props) => {
     var test = loadOptions(selectedOption.target.value)
   };
   const handleChange = selectedOption => {
+    console.log(selectedOption)
+    setSopt(selectedOption)
 
   };
   var options = [
 
   ];
+  
 
   // // // load options using API call
   const loadOptions = (inputValue) => {
     if (inputValue.length > 1) {
       AngelAuthService.getNseData(inputValue).then((data) => {
-        console.log(data.data)
         var array1 = data.data;
         array1.forEach(element => {
           if (options.indexOf(element) === -1) {
-            options.push(element);
-            console.log(options);
+            options.push({label:element.name + " / " + element.symbol, value:element.symbol, symboltoken:element.token, exchange:element.exch_seg});
           }
 
         });
+        setOpt(options)
       });
     }
-    console.log(options)
 
 
   };
-
+  const OptionType =(e) =>{
+    
+    console.log(e)
+  } 
   return (
     <Card className={"container " + styles.container}>
       <h5>Welcome {cookies.get('clientname')} and Client Id : {cookies.get('clientid')}  A Cash: {Number(funds.availablecash).toFixed(2)} Net Cash: {Number(funds.net).toFixed(2)}</h5>
@@ -63,7 +69,7 @@ const Trade = (props) => {
         //value={selectedOption}
         onChange={handleChange}
         onKeyDown={handleKey}
-        options={options}
+        options={opt}
       />
 
       <div class="table-responsive">

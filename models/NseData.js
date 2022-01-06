@@ -11,7 +11,6 @@ const TodoSchema = new mongoose.Schema({
   },
   name: {
     type: String,
-    required: true,
   },
   expiry: {
     type: String
